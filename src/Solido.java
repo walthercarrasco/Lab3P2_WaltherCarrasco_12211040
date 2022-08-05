@@ -6,8 +6,8 @@ public class Solido extends Cohete{
     public Solido() {
     }
 
-    public Solido(double kilos, String material, double pesoSor, String nombre, int serie, int potencia) {
-        super(pesoSor, nombre, serie, potencia);
+    public Solido(double kilos, String material, double peso_soportable, String nombre, int serie, int potencia) {
+        super(peso_soportable, nombre, serie, potencia);
         this.kilos = kilos;
         this.material = material;
     }

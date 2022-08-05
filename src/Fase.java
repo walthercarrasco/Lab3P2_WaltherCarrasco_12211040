@@ -5,8 +5,8 @@ public class Fase extends Cohete{
     private int motores;
     private double altura;
 
-    public Fase(int fases, int motores, double altura, double pesoSor, String nombre, int serie, int potencia) {
-        super(pesoSor, nombre, serie, potencia);
+    public Fase(int fases, int motores, double altura, double peso_soportable, String nombre, int serie, int potencia) {
+        super(peso_soportable, nombre, serie, potencia);
         this.fases = fases;
         this.motores = motores;
         this.altura = altura;

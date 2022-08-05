@@ -67,7 +67,67 @@ public class main {
                     }
                     System.out.print("Nombre: ");
                     leer = new Scanner(System.in);
-                    
+                    String nombre = leer.nextLine();
+                    System.out.print("Numero de serie: ");
+                    int serie = leer.nextInt();
+                    if(cohetes.isEmpty()== false){
+                        boolean val = true;
+                        do{
+                            for(int i = 0; i < cohetes.size(); i++){
+                                if(cohetes.get(i).getSerie() == serie){
+                                    System.out.println("Ya existe un numero de serie asi");
+                                    System.out.print("Numero de serie: ");
+                                    serie = leer.nextInt();
+                                }else{
+                                    val = false;
+                                }
+                            }
+                        }while(val == true);
+                    }
+                    double peso_soportable = -1;
+                    while(peso_soportable < 0){
+                        System.out.print("Peso soportable: ");
+                        peso_soportable = leer.nextDouble();
+                    }
+                    int potencia = 0;
+                    while(potencia < 0 || potencia > 9){
+                        System.out.print("Potencia(1-9): ");
+                        potencia = leer.nextInt();
+                    }
+                    if(tipo == 1){
+                        double litros = -1;
+                        while(litros < 0){
+                            System.out.print("Litros de combustible: ");
+                            litros = leer.nextDouble();
+                        }
+                        cohetes.add(new Liquido(litros, litros, nombre, serie, potencia));
+                    }else if(tipo == 2){
+                        int fases = 0;
+                        while(fases < 1){
+                            System.out.print("Fases: ");
+                            fases = leer.nextInt();
+                        }
+                        int motores = 0;
+                        while(motores < 1){
+                            System.out.print("Motores: ");
+                            motores = leer.nextInt();
+                        }
+                        double altura = 0;
+                        while(altura < 1){
+                            System.out.print("Altura: ");
+                            altura = leer.nextDouble();
+                        }
+                        cohetes.add(new Fase(fases, motores, altura, altura, nombre, serie, potencia));
+                    }else{
+                        double kilos = 0;
+                        while(kilos < 1){
+                            System.out.print("Kilos: ");
+                            kilos = leer.nextDouble();
+                        }
+                        System.out.print("Material: ");
+                        String material = leer.next();
+                        cohetes.add(new Solido(kilos, material, , nombre, serie, potencia))
+                    }
                 break;
                 
                 case 2:
@@ -81,7 +141,7 @@ public class main {
                     }
                     System.out.print("Nombre: ");
                     leer = new Scanner(System.in);
-                    String nombre = leer.nextLine();
+                    nombre = leer.nextLine();
                     boolean val = true;
                     do{
                         if(planetas.isEmpty() == false){
