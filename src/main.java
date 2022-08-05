@@ -1,12 +1,12 @@
 
 import java.util.ArrayList;
-
-
+import java.util.Scanner;
 
 public class main {
     
     static ArrayList<Planeta> planetas = new ArrayList<>();
     static ArrayList<Cohete> cohetes = new ArrayList<>();
+    static Scanner leer = new Scanner(System.in);
     
     public static void main (String[] args){
         //Planetas por defectos
@@ -37,5 +37,134 @@ public class main {
         cohetes.get(2).getPersonas().add(new Persona("Emiliano", 35, 80));
         cohetes.get(2).getPersonas().add(new Persona("Antonio", 23, 67));
         
+        System.out.println("3 Cohetes y Planetas agregados por defecto con Lunas y Personas");
+        System.out.println();
+        
+        boolean salida = true;
+        while(salida == true){
+            System.out.println("0. Salir"
+                    + "\n1. Crear Cohete"
+                    + "\n2. Crear Planeta"
+                    + "\n3. Editar Cohete"
+                    + "\n4. Editar Planeta"
+                    + "\n5. Listar Cohete"
+                    + "\n6. Listar Planetas"
+                    + "\n7. Probar Cohete");
+            System.out.print("Opcion: ");
+            int op = leer.nextInt();
+            switch(op){
+                case 0:
+                    salida = false;
+                break;
+                        
+                case 1: 
+                    int tipo = 0;
+                    while(tipo < 1 || tipo > 3){
+                        System.out.println("\n1. Cohete Combustible Liquido"
+                                + "\n2. Cohete de Fase"
+                                + "\n3. Cohete Combustible Solido");
+                        tipo = leer.nextInt();
+                    }
+                    System.out.print("Nombre: ");
+                    leer = new Scanner(System.in);
+                    
+                break;
+                
+                case 2:
+                    int tip = 0;
+                    System.out.println("\nTipo Planeta");
+                    while(tip < 1 || tip > 2){
+                        System.out.println("1. Rocoso"
+                                + "2. Gaseoso");
+                        System.out.print("Inserte: ");
+                        tip = leer.nextInt();
+                    }
+                    System.out.print("Nombre: ");
+                    leer = new Scanner(System.in);
+                    String nombre = leer.nextLine();
+                    boolean val = true;
+                    do{
+                        if(planetas.isEmpty() == false){
+                            for(int i = 0; i < planetas.size(); i++){
+                                if(planetas.get(i).getNombre().equalsIgnoreCase(nombre)){
+                                    System.out.println("Ya existe un planeta con ese nombre");
+                                    System.out.print("Nombre del planeta: ");
+                                    leer = new Scanner(System.in);
+                                    nombre = leer.nextLine();
+                                }else{
+                                    val = false;
+                                }
+                            }
+                        }else{
+                            val = false;
+                        }
+                    }while(val == true);
+                    double masa = 0;
+                    while(masa < 1){
+                        System.out.print("Masa: ");
+                        masa = leer.nextDouble();
+                    }
+                    double radio = 0;
+                    while(radio < 1){
+                        System.out.println("Radio del planeta: ");
+                        radio = leer.nextDouble();
+                    }
+                    System.out.print("Temperatura: ");
+                    double temperatura = leer.nextDouble();
+                    if(tip == 1){
+                        double densidad = 0;
+                        while(densidad < 1){
+                            System.out.print("Densidad: ");
+                            densidad = leer.nextDouble();
+                        }
+                        int o = 0;
+                        while(o < 1 || o > 2){
+                            System.out.println("\n¿Hay vida?"
+                                    + "\n1. si"
+                                    + "\n2. no");
+                            System.out.print("Opcion: ");
+                            o = leer.nextInt();
+                        }
+                        
+                        if(o == 1){
+                            planetas.add(new Planeta(nombre, masa, radio, temperatura, new Rocoso(densidad,true)));
+                        }else{
+                            planetas.add(new Planeta(nombre, masa, radio, temperatura, new Rocoso(densidad,false)));
+                        }
+                    }else{
+                        double presion = 0;
+                        while(presion < 0){
+                            System.out.print("Presion: ");
+                            presion = leer.nextDouble();
+                        }
+                        int anillos = 0;
+                        while(anillos < 0){
+                            System.out.print("Cantidad de anillos: ");
+                            anillos = leer.nextInt();
+                        }
+                        planetas.add(new Planeta(nombre, masa, radio, temperatura, new Gaseoso(presion, anillos)));
+                    }
+                break;
+                
+                case 3:
+                break;
+                
+                case 4:
+                break;
+                
+                case 5:
+                break;
+                
+                case 6:
+                break;
+                
+                case 7:
+                break;
+            }
+        }
+    }
+    
+    public static String PlaNo(String nombre){
+        return nombre;
     }
 }
