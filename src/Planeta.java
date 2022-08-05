@@ -10,16 +10,17 @@ public class Planeta {
     private double temperatura;
     private double velocidad;
     private ArrayList<Luna> lunas = new ArrayList<>();
+    private Object tipo;
 
     public Planeta() {
     }
 
-    public Planeta(String nombre, double masa, double radio, double temperatura, double velocidad) {
+    public Planeta(String nombre, double masa, double radio, double temperatura, Object tipo) {
         this.nombre = nombre;
         this.masa = masa;
         this.radio = radio;
         this.temperatura = temperatura;
-        this.velocidad = velocidad;
+        this.tipo = tipo;
     }
 
     public String getNombre() {
@@ -67,9 +68,17 @@ public class Planeta {
         this.lunas = lunas;
     }
 
+    public Object getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(Object tipo) {
+        this.tipo = tipo;
+    }
+
     @Override
     public String toString() {
-        return "Planeta{" + "nombre=" + nombre + ", masa=" + masa + ", radio=" + radio + ", temperatura=" + temperatura + ", velocidad=" + velocidad + ", lunas=" + lunas + '}';
+        return "Planeta{" + "nombre=" + nombre + ", masa=" + masa + ", radio=" + radio + ", temperatura=" + temperatura + ", velocidad=" + velocidad + ", lunas=" + lunas + "}\n" + tipo.toString();
     }
     
 }

@@ -10,8 +10,8 @@ public class Liquido extends Cohete{
         super();
     }
 
-    public Liquido(double litro, double pesoSor, String nombre, int serie, int potencia, double velocidad) {
-        super(pesoSor, nombre, serie, potencia, velocidad);
+    public Liquido(double litro, double pesoSor, String nombre, int serie, int potencia) {
+        super(pesoSor, nombre, serie, potencia);
         this.litro = litro;
     }
 
