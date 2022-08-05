@@ -207,10 +207,57 @@ public class main {
                 break;
                 
                 case 3:
-                    
+                    for (Cohete ob : cohetes) {
+                        System.out.println(cohetes.indexOf(ob) + ": \n" + ob.toString());
+                        System.out.println();
+                    }
+                    int x = -1;
+                    while(x < 0 || x > cohetes.size()){
+                        System.out.print("Ingrese el numero del cohete a editar: ");
+                        x = leer.nextInt();
+                    }
+                    int op1 = 0;
+                    while(op1 < 1 || op1 > 3){
+                        System.out.println("1. Agregar Persona"
+                                + "\n2. Eliminar Persona"
+                                + "\n3. Listar Personas");
+                        System.out.print("opcion: ");
+                        op1 = leer.nextInt();
+                    }
+                    if(op1 == 1){
+                        System.out.println("Nombre: ");
+                        leer = new Scanner(System.in);
+                        nombre = leer.nextLine();
+                        System.out.print("Edad: ");
+                        int edad = leer.nextInt();
+                        System.out.print("Peso: ");
+                        double peso = leer.nextDouble();
+                        cohetes.get(x).getPersonas().add(new Persona(nombre, edad, peso));
+                    }else if(op1 == 2){
+                        for(int i = 0; i < cohetes.get(x).getPersonas().size(); i++){
+                            System.out.println(i + " - " + cohetes.get(x).getPersonas().get(i).toString());
+                            System.out.println();
+                        }
+                        int p = -1;
+                        while(p < 0 || p > cohetes.get(x).getPersonas().size()){
+                            System.out.print("Numero de persona a eliminar: ");
+                            p = leer.nextInt();
+                        }
+                        cohetes.get(x).getPersonas().remove(p);
+                    }else{
+                        for(int i = 0; i < cohetes.get(x).getPersonas().size(); i++){
+                            System.out.println(i + " - " + cohetes.get(x).getPersonas().get(i).toString());
+                            System.out.println();
+                        }                        
+                    }
                 break;
                 
                 case 4:
+                    for(Planeta pla : planetas){
+                        System.out.println(planetas.indexOf(op) + ": \n" + pla.toString());
+                        System.out.println();
+                    }
+                    
                 break;
                 
                 case 5:
@@ -225,6 +272,17 @@ public class main {
                         System.out.println(planetas.indexOf(op) + ": \n" + pla.toString());
                         System.out.println();
                     }
+                    x = -1;
+                    while(x < 0 || x > planetas.size()){
+                        System.out.print("Numero de planeta a modificar: ");
+                        x = leer.nextInt();
+                    }
+   
+                    System.out.println("1. Agregar Luna"
+                            + "\n2. Eliminar Luna"
+                            + "\n3. Listar Lunas");
+                    System.out.print("Opcion: ");
+                    
                 break;
                 
                 case 7:
@@ -235,7 +293,7 @@ public class main {
                         System.out.println();
                     }
                     System.out.print("Seleccione el planeta: ");
-                    int x = leer.nextInt();
+                    x = leer.nextInt();
                     while(x < 0 || x > planetas.size()){
                         System.out.print("Seleccione el planeta: ");
                         x = leer.nextInt();
@@ -280,6 +338,10 @@ public class main {
                     }
                     System.out.println("Intentos Existosos: " + exitosos);
                     System.out.println("Intentos Fallidos: " + fallidos);
+                break;
+                
+                default: 
+                    System.out.println("Opcion no correcta");
                 break;
             }
         }
