@@ -257,7 +257,46 @@ public class main {
                         System.out.println(planetas.indexOf(op) + ": \n" + pla.toString());
                         System.out.println();
                     }
-                    
+                    x = -1;
+                    while(x < 0 || x > planetas.size()){
+                        System.out.print("Numero de planeta a modificar: ");
+                        x = leer.nextInt();
+                    }
+                    int op2 = 0;
+                    while(op2 < 1 || op2 > 3){
+                        System.out.println("1. Agregar Luna"
+                                + "\n2. Eliminar Luna"
+                                + "\n3. Listar Lunas");
+                        System.out.print("Opcion: "); 
+                        op2 = leer.nextInt();
+                    }
+                    if(op2 == 1){
+                        System.out.print("Nombre: ");
+                        leer = new Scanner(System.in);
+                        nombre = leer.nextLine();
+                        int crateres = -1;
+                        while(crateres < 0){
+                            System.out.print("Cantidad de crateres: ");
+                            crateres = leer.nextInt();
+                        }
+                        planetas.get(x).getLunas().add(new Luna(nombre, crateres));
+                    }else if(op2 == 2){
+                        for(int i = 0; i < planetas.get(x).getLunas().size(); i++){
+                            System.out.println(i + " - " + planetas.get(x).getLunas().get(i).toString());
+                            System.out.println();
+                        }
+                        int l = -1;
+                        while(l < 0 || l > planetas.get(x).getLunas().size()){
+                            System.out.print("Numero de lunas a eliminar: ");
+                            l = leer.nextInt();
+                        }
+                        planetas.get(x).getLunas().remove(l);
+                    }else{
+                        for(int i = 0; i < planetas.get(x).getLunas().size(); i++){
+                            System.out.println(i + " - " + planetas.get(x).getLunas().get(i).toString());
+                            System.out.println();
+                        }                        
+                    }
                 break;
                 
                 case 5:
@@ -272,16 +311,6 @@ public class main {
                         System.out.println(planetas.indexOf(op) + ": \n" + pla.toString());
                         System.out.println();
                     }
-                    x = -1;
-                    while(x < 0 || x > planetas.size()){
-                        System.out.print("Numero de planeta a modificar: ");
-                        x = leer.nextInt();
-                    }
-   
-                    System.out.println("1. Agregar Luna"
-                            + "\n2. Eliminar Luna"
-                            + "\n3. Listar Lunas");
-                    System.out.print("Opcion: ");
                     
                 break;
                 
@@ -344,6 +373,8 @@ public class main {
                     System.out.println("Opcion no correcta");
                 break;
             }
+            System.out.println();
+            System.out.println();
         }
     }
     
