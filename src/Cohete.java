@@ -67,12 +67,14 @@ public class Cohete {
     public void setPersonas(ArrayList<Persona> personas) {
         this.personas = personas;
     }
-    
 
     @Override
     public String toString() {
-        return "Cohete{" + "Peso Soportable=" + peso_soportable + ", nombre=" + nombre + ", serie=" + serie + ", potencia=" + potencia + ", velocidad=" + velocidad + '}';
+        return "Cohete{" + "peso_soportable=" + peso_soportable + ", nombre=" + nombre + ", serie=" + serie + ", potencia=" + potencia + ", velocidad=" + velocidad + "}";
     }
+    
+
+
     
     
 }

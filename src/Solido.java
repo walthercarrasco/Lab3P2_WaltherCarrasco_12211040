@@ -27,6 +27,11 @@ public class Solido extends Cohete{
     public void setMaterial(String material) {
         this.material = material;
     }
+
+    @Override
+    public String toString() {
+        return "Solido{" + "kilos=" + kilos + ", material=" + material + "}\n" + super.toString();
+    }
     
     
 }

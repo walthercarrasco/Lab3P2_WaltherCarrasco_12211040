@@ -25,7 +25,7 @@ public class Liquido extends Cohete{
 
     @Override
     public String toString() {
-        return "Liquido{" + "litro=" + litro + '}';
+        return "Liquido{" + "litro=" + litro + "}\n" + super.toString();
     }
 
 

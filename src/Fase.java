@@ -39,6 +39,11 @@ public class Fase extends Cohete{
     public void setAltura(double altura) {
         this.altura = altura;
     }
+
+    @Override
+    public String toString() {
+        return "Fase{" + "fases=" + fases + ", motores=" + motores + ", altura=" + altura + "}\n" + super.toString();
+    }
     
     
 }

@@ -100,7 +100,7 @@ public class main {
                             System.out.print("Litros de combustible: ");
                             litros = leer.nextDouble();
                         }
-                        cohetes.add(new Liquido(litros, litros, nombre, serie, potencia));
+                        cohetes.add(new Liquido(litros, peso_soportable, nombre, serie, potencia));
                     }else if(tipo == 2){
                         int fases = 0;
                         while(fases < 1){
@@ -117,7 +117,7 @@ public class main {
                             System.out.print("Altura: ");
                             altura = leer.nextDouble();
                         }
-                        cohetes.add(new Fase(fases, motores, altura, altura, nombre, serie, potencia));
+                        cohetes.add(new Fase(fases, motores, altura, peso_soportable, nombre, serie, potencia));
                     }else{
                         double kilos = 0;
                         while(kilos < 1){
@@ -126,7 +126,7 @@ public class main {
                         }
                         System.out.print("Material: ");
                         String material = leer.next();
-                        cohetes.add(new Solido(kilos, material, , nombre, serie, potencia))
+                        cohetes.add(new Solido(kilos, material, peso_soportable, nombre, serie, potencia));
                     }
                 break;
                 
@@ -207,18 +207,32 @@ public class main {
                 break;
                 
                 case 3:
+                    
                 break;
                 
                 case 4:
                 break;
                 
                 case 5:
+                    for (Cohete ob : cohetes) {
+                        System.out.println(cohetes.indexOf(ob) + ": \n" + ob.toString());
+                        System.out.println();
+                    }
                 break;
                 
                 case 6:
+                    for(Planeta pla : planetas){
+                        System.out.println(pla.toString());
+                        System.out.println();
+                    }
                 break;
                 
                 case 7:
+                    int o = 0;
+                    while(o < 1 || o > 2){
+                        System.out.println("1. Probar Uno"
+                                + "\n2. Probar Todos");
+                    }
                 break;
             }
         }
