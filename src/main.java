@@ -222,17 +222,64 @@ public class main {
                 
                 case 6:
                     for(Planeta pla : planetas){
-                        System.out.println(pla.toString());
+                        System.out.println(planetas.indexOf(op) + ": \n" + pla.toString());
                         System.out.println();
                     }
                 break;
                 
                 case 7:
+                    int fallidos = 0;
+                    int exitosos = 0;
+                    for(Planeta pla : planetas){
+                        System.out.println(planetas.indexOf(op) + ": \n" + pla.toString());
+                        System.out.println();
+                    }
+                    System.out.print("Seleccione el planeta: ");
+                    int x = leer.nextInt();
+                    while(x < 0 || x > planetas.size()){
+                        System.out.print("Seleccione el planeta: ");
+                        x = leer.nextInt();
+                    }
                     int o = 0;
                     while(o < 1 || o > 2){
                         System.out.println("1. Probar Uno"
                                 + "\n2. Probar Todos");
+                        System.out.print("Opcion: ");
+                        o = leer.nextInt();
                     }
+                    if(o == 1){
+                        for (Cohete ob : cohetes) {
+                            System.out.println(cohetes.indexOf(ob) + ": \n" + ob.toString());
+                            System.out.println();
+                        }
+                        int z = -1;
+                        while(z < 0 || z > cohetes.size()){
+                            System.out.print("Numero de Cohete: ");
+                            z = leer.nextInt();
+                        }
+                        double vel = cohetes.get(z).getVelocidad();
+                        if(vel > planetas.get(x).getVelocidad()){
+                            exitosos++;
+                            System.out.println("El Cohete " + cohetes.get(z).getNombre() + " alcanzo una velocidad de " + vel  + " y logro salir del planeta " + planetas.get(x).getNombre());
+                        }else{
+                            fallidos++;
+                            System.out.println("El Cohete " + cohetes.get(z).getNombre() + " alcanzo una velocidad de " + vel  + " y NO logro salir del planeta " + planetas.get(x).getNombre());
+                        }
+                    }else{
+                        for(int i = 0; i < cohetes.size(); i++){
+                            double vel = cohetes.get(i).getVelocidad();
+                            if(vel > planetas.get(x).getVelocidad()){
+                                exitosos++;
+                                System.out.println("El Cohete " + cohetes.get(i).getNombre() + " alcanzo una velocidad de " + vel  + " y logro salir del planeta " + planetas.get(x).getNombre());
+                            }else{
+                                fallidos++;
+                                System.out.println("El Cohete " + cohetes.get(i).getNombre() + " alcanzo una velocidad de " + vel  + " y NO logro salir del planeta " + planetas.get(x).getNombre());
+                            }      
+                            System.out.println();
+                        }
+                    }
+                    System.out.println("Intentos Existosos: " + exitosos);
+                    System.out.println("Intentos Fallidos: " + fallidos);
                 break;
             }
         }
