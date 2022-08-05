@@ -261,7 +261,7 @@ public class main {
                         System.out.println("Aun no ha agregado Planetas");
                     }else{
                         for(Planeta pla : planetas){
-                            System.out.println(planetas.indexOf(op) + ": \n" + pla.toString());
+                            System.out.println(planetas.indexOf(pla) + ": \n" + pla.toString());
                             System.out.println();
                         }
                         x = -1;
@@ -316,7 +316,7 @@ public class main {
                 
                 case 6:
                     for(Planeta pla : planetas){
-                        System.out.println(planetas.indexOf(op) + ": \n" + pla.toString());
+                        System.out.println(planetas.indexOf(pla) + ": \n" + pla.toString());
                         System.out.println();
                     }
                     
