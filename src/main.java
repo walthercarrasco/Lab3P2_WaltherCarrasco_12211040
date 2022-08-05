@@ -207,95 +207,103 @@ public class main {
                 break;
                 
                 case 3:
-                    for (Cohete ob : cohetes) {
-                        System.out.println(cohetes.indexOf(ob) + ": \n" + ob.toString());
-                        System.out.println();
-                    }
                     int x = -1;
-                    while(x < 0 || x > cohetes.size()){
-                        System.out.print("Ingrese el numero del cohete a editar: ");
-                        x = leer.nextInt();
-                    }
-                    int op1 = 0;
-                    while(op1 < 1 || op1 > 3){
-                        System.out.println("1. Agregar Persona"
-                                + "\n2. Eliminar Persona"
-                                + "\n3. Listar Personas");
-                        System.out.print("opcion: ");
-                        op1 = leer.nextInt();
-                    }
-                    if(op1 == 1){
-                        System.out.println("Nombre: ");
-                        leer = new Scanner(System.in);
-                        nombre = leer.nextLine();
-                        System.out.print("Edad: ");
-                        int edad = leer.nextInt();
-                        System.out.print("Peso: ");
-                        double peso = leer.nextDouble();
-                        cohetes.get(x).getPersonas().add(new Persona(nombre, edad, peso));
-                    }else if(op1 == 2){
-                        for(int i = 0; i < cohetes.get(x).getPersonas().size(); i++){
-                            System.out.println(i + " - " + cohetes.get(x).getPersonas().get(i).toString());
-                            System.out.println();
-                        }
-                        int p = -1;
-                        while(p < 0 || p > cohetes.get(x).getPersonas().size()){
-                            System.out.print("Numero de persona a eliminar: ");
-                            p = leer.nextInt();
-                        }
-                        cohetes.get(x).getPersonas().remove(p);
+                    if(cohetes.isEmpty()){
+                            System.out.println("Aun no se ha agregado Cohetes");
                     }else{
-                        for(int i = 0; i < cohetes.get(x).getPersonas().size(); i++){
-                            System.out.println(i + " - " + cohetes.get(x).getPersonas().get(i).toString());
+                        for (Cohete ob : cohetes) {
+                            System.out.println(cohetes.indexOf(ob) + ": \n" + ob.toString());
                             System.out.println();
-                        }                        
+                        }
+                        while(x < 0 || x > cohetes.size()){
+                            System.out.print("Ingrese el numero del cohete a editar: ");
+                            x = leer.nextInt();
+                        }
+                        int op1 = 0;
+                        while(op1 < 1 || op1 > 3){
+                            System.out.println("1. Agregar Persona"
+                                    + "\n2. Eliminar Persona"
+                                    + "\n3. Listar Personas");
+                            System.out.print("opcion: ");
+                            op1 = leer.nextInt();
+                        }
+                        if(op1 == 1){
+                            System.out.println("Nombre: ");
+                            leer = new Scanner(System.in);
+                            nombre = leer.nextLine();
+                            System.out.print("Edad: ");
+                            int edad = leer.nextInt();
+                            System.out.print("Peso: ");
+                            double peso = leer.nextDouble();
+                            cohetes.get(x).getPersonas().add(new Persona(nombre, edad, peso));
+                        }else if(op1 == 2){
+                            for(int i = 0; i < cohetes.get(x).getPersonas().size(); i++){
+                                System.out.println(i + " - " + cohetes.get(x).getPersonas().get(i).toString());
+                                System.out.println();
+                            }
+                            int p = -1;
+                            while(p < 0 || p > cohetes.get(x).getPersonas().size()){
+                                System.out.print("Numero de persona a eliminar: ");
+                                p = leer.nextInt();
+                            }
+                            cohetes.get(x).getPersonas().remove(p);
+                        }else{
+                            for(int i = 0; i < cohetes.get(x).getPersonas().size(); i++){
+                                System.out.println(i + " - " + cohetes.get(x).getPersonas().get(i).toString());
+                                System.out.println();
+                            }                        
+                        }
                     }
                 break;
                 
                 case 4:
-                    for(Planeta pla : planetas){
-                        System.out.println(planetas.indexOf(op) + ": \n" + pla.toString());
-                        System.out.println();
-                    }
-                    x = -1;
-                    while(x < 0 || x > planetas.size()){
-                        System.out.print("Numero de planeta a modificar: ");
-                        x = leer.nextInt();
-                    }
-                    int op2 = 0;
-                    while(op2 < 1 || op2 > 3){
-                        System.out.println("1. Agregar Luna"
-                                + "\n2. Eliminar Luna"
-                                + "\n3. Listar Lunas");
-                        System.out.print("Opcion: "); 
-                        op2 = leer.nextInt();
-                    }
-                    if(op2 == 1){
-                        System.out.print("Nombre: ");
-                        leer = new Scanner(System.in);
-                        nombre = leer.nextLine();
-                        int crateres = -1;
-                        while(crateres < 0){
-                            System.out.print("Cantidad de crateres: ");
-                            crateres = leer.nextInt();
-                        }
-                        planetas.get(x).getLunas().add(new Luna(nombre, crateres));
-                    }else if(op2 == 2){
-                        for(int i = 0; i < planetas.get(x).getLunas().size(); i++){
-                            System.out.println(i + " - " + planetas.get(x).getLunas().get(i).toString());
-                            System.out.println();
-                        }
-                        int l = -1;
-                        while(l < 0 || l > planetas.get(x).getLunas().size()){
-                            System.out.print("Numero de lunas a eliminar: ");
-                            l = leer.nextInt();
-                        }
-                        planetas.get(x).getLunas().remove(l);
+                    if(planetas.isEmpty() == true){
+                        System.out.println("Aun no ha agregado Planetas");
                     }else{
-                        for(int i = 0; i < planetas.get(x).getLunas().size(); i++){
-                            System.out.println(i + " - " + planetas.get(x).getLunas().get(i).toString());
+                        for(Planeta pla : planetas){
+                            System.out.println(planetas.indexOf(op) + ": \n" + pla.toString());
                             System.out.println();
-                        }                        
+                        }
+                        x = -1;
+                        while(x < 0 || x > planetas.size()){
+                            System.out.print("Numero de planeta a modificar: ");
+                            x = leer.nextInt();
+                        }
+                        int op2 = 0;
+                        while(op2 < 1 || op2 > 3){
+                            System.out.println("1. Agregar Luna"
+                                    + "\n2. Eliminar Luna"
+                                    + "\n3. Listar Lunas");
+                            System.out.print("Opcion: "); 
+                            op2 = leer.nextInt();
+                        }
+                        if(op2 == 1){
+                            System.out.print("Nombre: ");
+                            leer = new Scanner(System.in);
+                            nombre = leer.nextLine();
+                            int crateres = -1;
+                            while(crateres < 0){
+                                System.out.print("Cantidad de crateres: ");
+                                crateres = leer.nextInt();
+                            }
+                            planetas.get(x).getLunas().add(new Luna(nombre, crateres));
+                        }else if(op2 == 2){
+                            for(int i = 0; i < planetas.get(x).getLunas().size(); i++){
+                                System.out.println(i + " - " + planetas.get(x).getLunas().get(i).toString());
+                                System.out.println();
+                            }
+                            int l = -1;
+                            while(l < 0 || l > planetas.get(x).getLunas().size()){
+                                System.out.print("Numero de lunas a eliminar: ");
+                                l = leer.nextInt();
+                            }
+                            planetas.get(x).getLunas().remove(l);
+                        }else{
+                            for(int i = 0; i < planetas.get(x).getLunas().size(); i++){
+                                System.out.println(i + " - " + planetas.get(x).getLunas().get(i).toString());
+                                System.out.println();
+                            }                        
+                        }
                     }
                 break;
                 
